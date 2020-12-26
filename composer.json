@@ -1,0 +1,47 @@
+{
+  "name": "johannschopplich/kirby-hashed-assets",
+  "description": "File name hashes support for css() and js() helpers",
+  "type": "kirby-plugin",
+  "keywords": [
+    "assets",
+    "components",
+    "css",
+    "helpers",
+    "js",
+    "kirby",
+    "laravel-mix",
+    "manifest"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Johann Schopplich",
+      "email": "pkg@johannschopplich.com",
+      "homepage": "https://johannschopplich.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.4.0",
+    "getkirby/composer-installer": "^1.2"
+  },
+  "require-dev": {
+    "getkirby/cms": "^3.0",
+    "phpunit/phpunit": "^9.0"
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "sort-packages": true
+  },
+  "autoload": {
+    "psr-4": {
+      "KirbyExtended\\": "classes/KirbyExtended/"
+    }
+  },
+  "scripts": {
+    "test": "phpunit",
+    "dist": "composer install --no-dev --optimize-autoloader"
+  },
+  "extra": {
+    "kirby-cms-path": false
+  }
+}
