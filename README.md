@@ -10,7 +10,7 @@ Use hashed assets with the `css()` and `js()` helpers without changing the asset
 
 ## Requirements
 
-- Node.js with npm
+- Node.js
   - Optional, for file name hashing and `manifest.json` generation only.
 - Kirby 3
 - PHP 7.4+
@@ -37,16 +37,18 @@ composer require johannschopplich/kirby-hashed-assets
 
 ### Automatic hashing with `manifest.json`
 
-First and foremost, copy the [the Node script](scripts/hashBuildAssets.js) to your root directory and run `node scripts/hashBuildAssets.js` after each build. The script will rename unhashed CSS and JS assets inside the `assets` directory and generate an asset `manifest.json`.
+> Head over to the [https://github.com/johannschopplich/plainkit-hashed-assets](plainkit-hashed-assets) repository to see a complete build setup in action.
 
-You may add the following npm script to auto-hash file names and generate the manifest after each build iteration automatically:
+To rename unhashed CSS and JS assets inside the `assets` directory after each build and generate an asset `manifest.json`, execute the [`hashBuildAssets.js`](scripts/hashBuildAssets.js) script. You can copy it to your build 
+
+You may add the following npm script to hash file names and generate the manifest after each build iteration automatically:
 
 ```js
 {
   "scripts": {
     "clean": "rm -rf public/assets/{css,js}",
     "assets:build": "...",
-    "assets:hash": "node scripts/hashBuildAssets.js",
+    "assets:hash": "node site/plugins/kirby-hashed-assets/scripts/hashBuildAssets.js",
     "build": "npm run clean && npm run assets:build && npm run assets:hash"
   }
 }
@@ -72,7 +74,7 @@ For template-specific assets, use `@template` (instead of `@auto`):
 
 For smaller websites you may prefer no build chain at all, but still want to utilize some form of asset hashing. In this use-case you can rename your files manually.
 
-Take a imaginary `assets/js/main.js` for example. Just include it like you normally would in one of your snippets:
+Take an imaginary `main.js` for example. Just include it like you normally would in one of your snippets:
 
 ```php
 <?= js('assets/js/main.js') ?>
