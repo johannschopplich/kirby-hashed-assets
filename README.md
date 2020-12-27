@@ -58,7 +58,7 @@ Now pass asset paths to Kirby's asset helpers like you normally would:
 
 ```php
 <?= js('assets/js/main.js') ?>
-// Exemplary output: `<script src="https://example.com/assets/js/main.9ad649fd.js"></script>
+// Example output: `<script src="https://example.com/assets/js/main.9ad649fd.js"></script>
 ```
 
 If a corresponding hashed file is found in the `manifest.json`, it will be used and rendered.
@@ -67,7 +67,7 @@ For template-specific assets, use `@template` (instead of `@auto`):
 
 ```php
 <?= js('@template') ?>
-// Exemplary output: `<script src="https://example.com/assets/js/templates/home.92c6b511.js"></script>`
+// Example output: `<script src="https://example.com/assets/js/templates/home.92c6b511.js"></script>`
 ```
 
 ### Manual hashing
@@ -80,7 +80,7 @@ Take an imaginary `main.js` for example. Just include it like you normally would
 <?= js('assets/js/main.js') ?>
 ```
 
-Now rename the file in the format of `main.{hash}.js`. You may use the current date, e.g.: `main.20201226.js`. Exemplary outout:
+Now rename the file in the format of `main.{hash}.js`. You may use the current date, e.g.: `main.20201226.js`. Example output:
 
 ```html
 <script src="https://example.com/assets/js/main.20201226.js"></script>
