@@ -7,7 +7,7 @@ use KirbyExtended\AssetHashes;
 
 Kirby::plugin('johannschopplich/kirby-hashed-assets', [
     'components' => [
-        'css' => [AssetHashes::class, 'handle'],
-        'js' => [AssetHashes::class, 'handle']
+        'css' => [AssetHashes::class, 'css'],
+        'js' => [AssetHashes::class, 'js']
     ]
 ]);

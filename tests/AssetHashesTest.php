@@ -15,8 +15,8 @@ class AssetHashesTest extends TestCase
                 'index' => __DIR__ . '/fixtures'
             ],
             'components' => [
-                'css' => [AssetHashes::class, 'handle'],
-                'js' => [AssetHashes::class, 'handle']
+                'css' => [AssetHashes::class, 'css'],
+                'js' => [AssetHashes::class, 'js']
             ]
         ]);
     }
