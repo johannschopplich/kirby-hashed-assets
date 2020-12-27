@@ -3,8 +3,8 @@ import fs from 'fs'
 import fg from 'fast-glob'
 import crypto from 'crypto'
 
-const publicDir = fs.existsSync('public') ? 'public' : ''
-const assetsDir = (publicDir ? `${publicDir}/` : '') + 'assets'
+const indexPath = fs.existsSync('public') ? 'public/' : ''
+const assetsDir = `${indexPath}assets`
 const assetFiles = fg.sync(`${assetsDir}/{css,js}/**/*.{css,js}`)
 const manifest = {}
 const hashedFilenameRegExp = /[.-]\w{8}\./
@@ -35,7 +35,7 @@ for (const filePath of assetFiles) {
   const newFilePath = `${dirname}/${newFilename}`
   fs.renameSync(filePath, newFilePath)
 
-  manifest[filePath.slice(publicDir.length)] = newFilePath.slice(publicDir.length)
+  manifest['/' + filePath.slice(indexPath.length)] = '/' + newFilePath.slice(indexPath.length)
 }
 
 fs.writeFileSync(`${assetsDir}/manifest.json`, JSON.stringify(manifest, null, 2))
