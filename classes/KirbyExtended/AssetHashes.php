@@ -9,21 +9,16 @@ use Kirby\Toolkit\Str;
 
 class AssetHashes
 {
-    /**
-     * Manifest containing hashed filenames
-     *
-     * @var array|null
-     */
-    protected static ?array $manifest = null;
+    protected static array $manifest;
 
     /**
-     * Get and cache static `$manifest`
+     * Get manifest containing hashed filenames
      *
      * @return array
      */
     public static function useManifest(): array
     {
-        if (static::$manifest !== null) {
+        if (isset(static::$manifest)) {
             return static::$manifest;
         }
 
