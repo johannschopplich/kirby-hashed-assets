@@ -1,11 +1,11 @@
 import path from 'path'
 import fs from 'fs'
-import fg from 'fast-glob'
+import glob from 'tiny-glob/sync.js'
 import crypto from 'crypto'
 
 const indexPath = fs.existsSync('public') ? 'public/' : ''
 const assetsDir = `${indexPath}assets`
-const assetFiles = fg.sync(`${assetsDir}/{css,js}/**/*.{css,js}`)
+const assetFiles = glob(`${assetsDir}/{css,js}/**/*.{css,js}`)
 const manifest = {}
 const hashedFilenameRegExp = /[.-]\w{8}\./
 
