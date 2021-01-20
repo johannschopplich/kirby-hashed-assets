@@ -89,7 +89,7 @@ Voilà, without changing the asset path the hashed file will be found and render
 
 ### Hashed filenames for preloading links
 
-You can use the global `hashedUrl()` helper to lookup a file like you normally would with the `css()` or `js()` helpers. While the later helpers return a script or link tag, the `hashedUrl()` helper will only return a URL which you can use in any context.
+You can use the global `hashedUrl()` helper to lookup a file like you normally would with the `css()` or `js()` helpers. While the latter return a link or respectively script tag, the `hashedUrl()` helper will only return a URL which you can use in any context.
 
 ```php
 <link rel="preload" href="<?= hashedUrl('assets/js/templates/default.css') ?>" as="style">
