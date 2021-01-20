@@ -73,12 +73,13 @@ class AssetUrls
 
         $path = Url::path($url, true);
         $assetsDir = Str::ltrim($kirby->root('assets'), kirby()->root());
-        $absolutePath = $kirby->root() . $path;
 
         // Build path to template asset
         if ($url === '@template') {
             $path = "{$assetsDir}/{$extension}/templates/" . $kirby->site()->page()->template()->name() . ".{$extension}";
         }
+
+        $absolutePath = $kirby->root() . $path;
 
         // Check if the unhashed file exists before looking it up in the manifest
         if (F::exists($absolutePath)) {
