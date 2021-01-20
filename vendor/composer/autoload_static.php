@@ -6,6 +6,10 @@ namespace Composer\Autoload;
 
 class ComposerStaticInitc3386789d5fb7c2ab0303e685ea3eb75
 {
+    public static $files = array (
+        '7bf725901b12463ff2bf161bbe1670c1' => __DIR__ . '/../..' . '/helpers.php',
+    );
+
     public static $prefixLengthsPsr4 = array (
         'K' => 
         array (
@@ -27,7 +31,7 @@ class ComposerStaticInitc3386789d5fb7c2ab0303e685ea3eb75
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
-        'KirbyExtended\\AssetHashes' => __DIR__ . '/../..' . '/classes/KirbyExtended/AssetHashes.php',
+        'KirbyExtended\\AssetUrls' => __DIR__ . '/../..' . '/classes/KirbyExtended/AssetUrls.php',
         'Kirby\\ComposerInstaller\\CmsInstaller' => __DIR__ . '/..' . '/getkirby/composer-installer/src/ComposerInstaller/CmsInstaller.php',
         'Kirby\\ComposerInstaller\\Installer' => __DIR__ . '/..' . '/getkirby/composer-installer/src/ComposerInstaller/Installer.php',
         'Kirby\\ComposerInstaller\\Plugin' => __DIR__ . '/..' . '/getkirby/composer-installer/src/ComposerInstaller/Plugin.php',

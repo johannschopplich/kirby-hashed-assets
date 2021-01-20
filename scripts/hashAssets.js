@@ -27,7 +27,7 @@ for (const filePath of assetFiles) {
   const extension = path.extname(filePath)
   const filename = path.basename(filePath)
 
-  // Make sure file hasn't be renamed already or is a lazy rollup import
+  // Make sure file hasn't been hashed already
   if (hashedFilenameRegExp.test(filename)) continue
 
   const hash = createHash(filePath)

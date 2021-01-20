@@ -1,10 +1,10 @@
 <?php
 
 use Kirby\Cms\App;
-use KirbyExtended\AssetHashes;
+use KirbyExtended\AssetUrls;
 use PHPUnit\Framework\TestCase;
 
-class AssetHashesTest extends TestCase
+class AssetUrlsTest extends TestCase
 {
     protected $kirby;
 
@@ -15,8 +15,8 @@ class AssetHashesTest extends TestCase
                 'index' => __DIR__ . '/fixtures'
             ],
             'components' => [
-                'css' => [AssetHashes::class, 'css'],
-                'js' => [AssetHashes::class, 'js']
+                'css' => [AssetUrls::class, 'css'],
+                'js' => [AssetUrls::class, 'js']
             ]
         ]);
     }
@@ -49,5 +49,11 @@ class AssetHashesTest extends TestCase
     {
         $expected = '<script src="/assets/js/hashed.20201225.js"></script>';
         $this->assertEquals($expected, js('assets/js/hashed.js'));
+    }
+
+    public function testAssetUrlHelper()
+    {
+        $expected = '/assets/js/hashed.20201225.js';
+        $this->assertEquals($expected, hashedUrl('assets/js/hashed.js'));
     }
 }

@@ -33,6 +33,9 @@
     "sort-packages": true
   },
   "autoload": {
+    "files": [
+      "helpers.php"
+    ],
     "psr-4": {
       "KirbyExtended\\": "classes/KirbyExtended/"
     }
