@@ -1,6 +1,6 @@
 # Kirby Hashed Assets
 
-Enhances Kirby's `css()` and `js()` helpers to support hashed filenames. Pass your normal paths (e.g. `.../main.js`) – the plugin will lookup hashed assets and transform the path automatically (e.g. `../main.20201226.js`). That way you can even keep asset paths identical in development and production environment!
+Enhances Kirby's `css()` and `js()` helpers to support hashed filenames. Pass your normal paths (e.g. `…main.js`) – the plugin will lookup hashed assets and transform the path automatically (e.g. `…main.20201226.js`). That way you can even keep asset paths identical in development and production environment!
 
 ## Key features
 
