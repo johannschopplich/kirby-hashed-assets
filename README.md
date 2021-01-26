@@ -69,7 +69,7 @@ For template-specific assets, use `@template` (instead of `@auto`):
 // `<script src="https://example.com/assets/js/templates/home.92c6b511.js"></script>`
 ```
 
-> ⚠️ If no template file exists, `https://example.com/@template` will be echoed. This will lead to blocked content since the error page will be returned.
+> ⚠️ If no template file exists, `https://example.com/@template` will be echoed. This will lead to HTTP errors and blocked content since the requested file doesn't exist and the error page's HTML will be returned.
 
 If you are unsure if a template file exists, use the following helpers:
 - `cssTpl()`
