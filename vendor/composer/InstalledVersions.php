@@ -29,7 +29,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '282e8355ab9b27da8751aca6d0e09328956a2313',
+    'reference' => 'e0788545c752566f870de0433230f03ee3be21b5',
     'name' => 'johannschopplich/kirby-hashed-assets',
   ),
   'versions' => 
@@ -50,7 +50,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '282e8355ab9b27da8751aca6d0e09328956a2313',
+      'reference' => 'e0788545c752566f870de0433230f03ee3be21b5',
     ),
   ),
 );

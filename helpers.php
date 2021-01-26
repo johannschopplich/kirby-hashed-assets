@@ -20,14 +20,15 @@ if (!function_exists('cssTpl')) {
     /**
      * Creates the CSS link tag if template-specific CSS exists
      *
+     * @param string|array $options
      * @return mixed
      */
-    function cssTpl()
+    function cssTpl($options = [])
     {
-        $url = AssetUrls::handle(kirby(), '@template', [], 'css');
+        $url = AssetUrls::handle(kirby(), '@template', $options, 'css');
 
         if ($url !== '@template') {
-            return css($url);
+            return css($url, $options);
         }
     }
 }
@@ -36,14 +37,15 @@ if (!function_exists('jsTpl')) {
     /**
      * Creates a script tag if a template-specific JS exists
      *
+     * @param string|array $options
      * @return mixed
      */
-    function jsTpl()
+    function jsTpl($options = [])
     {
-        $url = AssetUrls::handle(kirby(), '@template', [], 'js');
+        $url = AssetUrls::handle(kirby(), '@template', $options, 'js');
 
         if ($url !== '@template') {
-            return js($url);
+            return js($url, $options);
         }
     }
 }
