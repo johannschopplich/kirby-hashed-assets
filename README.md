@@ -69,6 +69,14 @@ For template-specific assets, use `@template` (instead of `@auto`):
 // `<script src="https://example.com/assets/js/templates/home.92c6b511.js"></script>`
 ```
 
+> ⚠️ If no template file exists, `https://example.com/@template` will be echoed. This will lead to blocked content since the error page will be returned.
+
+If you are unsure if a template file exists, use the following helpers:
+- `cssTpl()`
+- `jsTpl()`
+
+They will echo a link tag, respectively script tag, only if a template file for current page's template is present.
+
 ### Manual hashing
 
 For smaller websites you may prefer no build chain at all, but still want to utilize some form of asset hashing. In this use-case you can rename your files manually.
