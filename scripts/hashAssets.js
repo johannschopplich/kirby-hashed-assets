@@ -29,7 +29,7 @@ function createHash (path) {
  * @returns {string} Cleaned path
  */
 function trimIndex (path) {
-  return path.replace(new RegExp(`^${indexPath}`))
+  return path.replace(new RegExp(`^${indexPath}`), '')
 }
 
 for (const filePath of assetFiles) {
