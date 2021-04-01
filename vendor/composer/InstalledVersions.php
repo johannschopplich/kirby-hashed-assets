@@ -25,12 +25,12 @@ class InstalledVersions
 private static $installed = array (
   'root' => 
   array (
-    'pretty_version' => 'dev-master',
-    'version' => 'dev-master',
+    'pretty_version' => 'dev-main',
+    'version' => 'dev-main',
     'aliases' => 
     array (
     ),
-    'reference' => '8d9099e75d5a69cd7dfd9466007803c02c07ebce',
+    'reference' => 'b4b0feb5b2a9820668dd9bccd3477070749fde65',
     'name' => 'johannschopplich/kirby-hashed-assets',
   ),
   'versions' => 
@@ -46,12 +46,12 @@ private static $installed = array (
     ),
     'johannschopplich/kirby-hashed-assets' => 
     array (
-      'pretty_version' => 'dev-master',
-      'version' => 'dev-master',
+      'pretty_version' => 'dev-main',
+      'version' => 'dev-main',
       'aliases' => 
       array (
       ),
-      'reference' => '8d9099e75d5a69cd7dfd9466007803c02c07ebce',
+      'reference' => 'b4b0feb5b2a9820668dd9bccd3477070749fde65',
     ),
   ),
 );
@@ -276,7 +276,6 @@ self::$canGetVendors = method_exists('Composer\Autoload\ClassLoader', 'getRegist
 $installed = array();
 
 if (self::$canGetVendors) {
-
 foreach (ClassLoader::getRegisteredLoaders() as $vendorDir => $loader) {
 if (isset(self::$installedByVendor[$vendorDir])) {
 $installed[] = self::$installedByVendor[$vendorDir];
