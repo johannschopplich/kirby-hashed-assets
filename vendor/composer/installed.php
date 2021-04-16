@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => 'b4b0feb5b2a9820668dd9bccd3477070749fde65',
+    'reference' => 'c833af502140676dd6c96c5b49612ae5d5157ec0',
     'name' => 'johannschopplich/kirby-hashed-assets',
   ),
   'versions' => 
@@ -27,7 +27,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => 'b4b0feb5b2a9820668dd9bccd3477070749fde65',
+      'reference' => 'c833af502140676dd6c96c5b49612ae5d5157ec0',
     ),
   ),
 );
