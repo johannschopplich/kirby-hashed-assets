@@ -40,14 +40,14 @@ composer require johannschopplich/kirby-hashed-assets
 
 > Head over to the [https://github.com/johannschopplich/plainkit-hashed-assets](plainkit-hashed-assets) repository to see a complete build setup in action.
 
-To rename unhashed CSS and JS assets inside the `assets` directory after each build and generate an asset `manifest.json`, execute the [`hashAssets.js`](scripts/hashAssets.js) script. The script is pre-bundled and doesn't need any node dependencies. You can copy it to your root directory or add a npm script to your `package.json` (recommended):
+To rename unhashed CSS and JS assets inside the `assets` directory after each build and generate an asset `manifest.json`, execute the [`hashAssets.cjs`](scripts/hashAssets.cjs) script. The script is pre-bundled and doesn't need any node dependencies. You can copy it to your root directory or add a npm script to your `package.json` (recommended):
 
 ```js
 {
   "scripts": {
     "clean": "rm -rf public/assets/{css,js}",
     "assets:build": "...",
-    "assets:hash": "node site/plugins/kirby-hashed-assets/scripts/hashAssets.js",
+    "assets:hash": "node site/plugins/kirby-hashed-assets/scripts/hashAssets.cjs",
     "build": "npm run clean && npm run assets:build && npm run assets:hash"
   }
 }
