@@ -1,7 +1,7 @@
-import path from 'path'
-import fs from 'fs'
-import fg from 'fast-glob'
-import crypto from 'crypto'
+const path = require('path')
+const fs = require('fs')
+const fg = require('fast-glob')
+const crypto = require('crypto')
 
 const indexPath = fs.existsSync('public') ? 'public/' : ''
 const assetsDir = `${indexPath}assets`
