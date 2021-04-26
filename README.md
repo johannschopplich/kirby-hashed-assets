@@ -5,6 +5,7 @@ Enhances Kirby's `css()` and `js()` helpers to support hashed filenames. Pass yo
 ## Key features
 
 - 🛷 Cache bust assets without query strings
+- 🎢 **No need** for web server rewrite rules!
 - ⛸ Supports `manifest.json`
 - 🎿 Supports manually hashed file names
 - ☃️ Create preload links with `hashedUrl()` helper
