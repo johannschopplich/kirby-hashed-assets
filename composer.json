@@ -28,23 +28,14 @@
     "getkirby/cms": "^3.0",
     "phpunit/phpunit": "^9.0"
   },
-  "config": {
-    "optimize-autoloader": true,
-    "sort-packages": true
-  },
-  "autoload": {
-    "files": [
-      "helpers.php"
-    ],
-    "psr-4": {
-      "KirbyExtended\\": "classes/KirbyExtended/"
-    }
-  },
   "scripts": {
     "test": "phpunit",
     "dist": "composer install --no-dev --optimize-autoloader"
   },
+  "config": {
+    "optimize-autoloader": true
+  },
   "extra": {
-    "kirby-cms-path": false
+    "kirby-cms-path": "tests/fixtures/kirby"
   }
 }

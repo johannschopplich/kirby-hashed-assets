@@ -1,26 +1,9 @@
 <?php
 
-use Kirby\Cms\App;
-use KirbyExtended\AssetUrls;
 use PHPUnit\Framework\TestCase;
 
 class AssetUrlsTest extends TestCase
 {
-    protected $kirby;
-
-    public function setUp(): void
-    {
-        $this->kirby = new App([
-            'roots' => [
-                'index' => __DIR__ . '/fixtures'
-            ],
-            'components' => [
-                'css' => [AssetUrls::class, 'css'],
-                'js' => [AssetUrls::class, 'js']
-            ]
-        ]);
-    }
-
     public function testAbsolutePath()
     {
         $expected = '<link href="https://example.com/main.css" rel="stylesheet">';

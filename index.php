@@ -1,13 +1,14 @@
 <?php
 
-@include_once __DIR__ . '/vendor/autoload.php';
+require __DIR__ . '/helpers.php';
 
-use Kirby\Cms\App as Kirby;
-use KirbyExtended\AssetUrls;
+load([
+    'KirbyExtended\\AssetUrls' => 'classes/KirbyExtended/AssetUrls.php'
+], __DIR__);
 
-Kirby::plugin('johannschopplich/kirby-hashed-assets', [
+\Kirby\Cms\App::plugin('johannschopplich/kirby-hashed-assets', [
     'components' => [
-        'css' => [AssetUrls::class, 'css'],
-        'js' => [AssetUrls::class, 'js']
+        'css' => [\KirbyExtended\AssetUrls::class, 'css'],
+        'js' => [\KirbyExtended\AssetUrls::class, 'js']
     ]
 ]);

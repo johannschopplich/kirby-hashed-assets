@@ -5,7 +5,7 @@
     "build": "esbuild --bundle --minify --platform=node --target=node14 --outfile=scripts/hashAssets.cjs src/node/index.js"
   },
   "devDependencies": {
-    "esbuild": "^0.12.15",
+    "esbuild": "^0.12.22",
     "fast-glob": "^3.2.7"
   }
 }
