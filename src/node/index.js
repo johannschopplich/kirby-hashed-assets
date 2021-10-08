@@ -1,4 +1,4 @@
-//@ts-check
+// @ts-check
 
 const path = require("path");
 const fs = require("fs");
@@ -13,8 +13,8 @@ const hashedFilenameRE = /\w{8}\.(?:css|js)$/;
 /**
  * Returns a 8-digit hash for a given file
  *
- * @param {string} path Path to the file
- * @returns {string} The generated hash
+ * @param {string} path Path of the file
+ * @returns {string} Generated hash
  */
 function getHash(path) {
   const buffer = fs.readFileSync(path);
@@ -26,11 +26,11 @@ function getHash(path) {
 /**
  * Trims the index dir from a given path
  *
- * @param {string} path Path to the file
+ * @param {string} i Path of the file
  * @returns {string} Cleaned path
  */
-function trimIndex(path) {
-  return path.replace(new RegExp(`^${indexPath}`), "");
+function trimIndex(i) {
+  return i.slice(indexPath.length);
 }
 
 /**
@@ -56,6 +56,7 @@ async function main() {
     });
 
     fs.renameSync(filePath, newFilePath);
+
     manifest[trimIndex(filePath)] = trimIndex(newFilePath);
   }
 
