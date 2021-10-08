@@ -1,13 +1,14 @@
+//@ts-check
+
 const path = require("path");
 const fs = require("fs");
 const fg = require("fast-glob");
 const crypto = require("crypto");
+const colorette = require("colorette");
 
 const indexPath = fs.existsSync("public") ? "public/" : "";
 const assetsDir = `${indexPath}assets`;
-const assetFiles = fg.sync(`${assetsDir}/{css,js}/**/*.{css,js}`);
-const manifest = {};
-const hashedFilenameRegExp = /\w{8}\.(css|js)$/;
+const hashedFilenameRE = /\w{8}\.(?:css|js)$/;
 
 /**
  * Returns a 8-digit hash for a given file
@@ -15,7 +16,7 @@ const hashedFilenameRegExp = /\w{8}\.(css|js)$/;
  * @param {string} path Path to the file
  * @returns {string} The generated hash
  */
-function createHash(path) {
+function getHash(path) {
   const buffer = fs.readFileSync(path);
   const sum = crypto.createHash("sha256").update(buffer);
   const hex = sum.digest("hex");
@@ -23,7 +24,7 @@ function createHash(path) {
 }
 
 /**
- * Trim the index dir from a given path
+ * Trims the index dir from a given path
  *
  * @param {string} path Path to the file
  * @returns {string} Cleaned path
@@ -32,26 +33,40 @@ function trimIndex(path) {
   return path.replace(new RegExp(`^${indexPath}`), "");
 }
 
-for (const filePath of assetFiles) {
-  const dirname = path.dirname(filePath);
-  const extension = path.extname(filePath);
-  const filename = path.basename(filePath);
+/**
+ * Main entry point
+ */
+async function main() {
+  const assetFiles = await fg(`${assetsDir}/{css,js}/**/*.{css,js}`);
+  const manifest = Object.create(null);
 
-  // Make sure file hasn't been hashed already
-  if (hashedFilenameRegExp.test(filename)) continue;
+  console.log(colorette.green("Hashing build assets..."));
 
-  const hash = createHash(filePath);
-  const newFilename = `${filename.substring(
-    0,
-    filename.indexOf(extension)
-  )}.${hash}${extension}`;
-  const newFilePath = `${dirname}/${newFilename}`;
-  fs.renameSync(filePath, newFilePath);
+  for (const filePath of assetFiles) {
+    const parsedPath = path.parse(filePath);
 
-  manifest[trimIndex(filePath)] = trimIndex(newFilePath);
+    // Make sure file hasn't been hashed already
+    if (hashedFilenameRE.test(parsedPath.base)) continue;
+
+    const hash = getHash(filePath);
+    const newFilePath = path.format({
+      ...parsedPath,
+      base: undefined,
+      ext: "." + hash + parsedPath.ext,
+    });
+
+    fs.renameSync(filePath, newFilePath);
+    manifest[trimIndex(filePath)] = trimIndex(newFilePath);
+  }
+
+  fs.writeFileSync(
+    `${assetsDir}/manifest.json`,
+    JSON.stringify(manifest, null, 2)
+  );
+
+  console.log(
+    `${colorette.green("✓")} Hashed ${assetFiles.length} asset files.`
+  );
 }
 
-fs.writeFileSync(
-  `${assetsDir}/manifest.json`,
-  JSON.stringify(manifest, null, 2)
-);
+main().catch((err) => console.error(err));
