@@ -2,7 +2,7 @@
 
 const path = require("path");
 const fs = require("fs");
-const fg = require("fast-glob");
+const glob = require("tiny-glob");
 const crypto = require("crypto");
 const colorette = require("colorette");
 
@@ -37,7 +37,7 @@ function trimIndex(i) {
  * Main entry point
  */
 async function main() {
-  const assetFiles = await fg(`${assetsDir}/{css,js}/**/*.{css,js}`);
+  const assetFiles = await glob(`${assetsDir}/{css,js}/**/*.{css,js}`);
   const manifest = Object.create(null);
 
   console.log(colorette.green("Hashing build assets..."));
