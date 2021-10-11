@@ -6,7 +6,7 @@ import { green, red } from "colorette";
 
 const indexPath = fs.existsSync("public") ? "public/" : "";
 const assetsDir = `${indexPath}assets`;
-const hashedFilenameRE = /\.\w{8}\.\w+$/;
+const hashedFilenameRE = /[.-]\w{8}\.\w+$/;
 
 /**
  * Returns a 8-digit hash for a given file

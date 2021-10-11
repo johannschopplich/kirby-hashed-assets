@@ -513,7 +513,7 @@ var {
 // src/node/index.ts
 var indexPath = import_fs.default.existsSync("public") ? "public/" : "";
 var assetsDir = `${indexPath}assets`;
-var hashedFilenameRE = /\.\w{8}\.\w+$/;
+var hashedFilenameRE = /[.-]\w{8}\.\w+$/;
 function getHash(path2) {
   const buffer = import_fs.default.readFileSync(path2);
   const sum = (0, import_crypto.createHash)("sha256").update(buffer);
