@@ -1,35 +1,27 @@
-// @ts-check
-
-const path = require("path");
-const fs = require("fs");
-const glob = require("tiny-glob");
-const crypto = require("crypto");
-const colorette = require("colorette");
+import path from "path";
+import fs from "fs";
+import glob from "tiny-glob";
+import { createHash } from "crypto";
+import { green, red } from "colorette";
 
 const indexPath = fs.existsSync("public") ? "public/" : "";
 const assetsDir = `${indexPath}assets`;
-const hashedFilenameRE = /\w{8}\.(?:css|js)$/;
+const hashedFilenameRE = /\.\w{8}\.\w+$/;
 
 /**
  * Returns a 8-digit hash for a given file
- *
- * @param {string} path Path of the file
- * @returns {string} Generated hash
  */
-function getHash(path) {
+function getHash(path: string) {
   const buffer = fs.readFileSync(path);
-  const sum = crypto.createHash("sha256").update(buffer);
+  const sum = createHash("sha256").update(buffer);
   const hex = sum.digest("hex");
   return hex.substr(0, 8);
 }
 
 /**
  * Trims the index dir from a given path
- *
- * @param {string} i Path of the file
- * @returns {string} Cleaned path
  */
-function trimIndex(i) {
+function trimIndex(i: string) {
   return i.slice(indexPath.length);
 }
 
@@ -40,7 +32,7 @@ async function main() {
   const assetFiles = await glob(`${assetsDir}/{css,js}/**/*.{css,js}`);
   const manifest = Object.create(null);
 
-  console.log(colorette.green("Hashing build assets..."));
+  console.log(green("Hashing build assets..."));
 
   for (const filePath of assetFiles) {
     const parsedPath = path.parse(filePath);
@@ -65,9 +57,7 @@ async function main() {
     JSON.stringify(manifest, null, 2)
   );
 
-  console.log(
-    `${colorette.green("✓")} Hashed ${assetFiles.length} asset files.`
-  );
+  console.log(`${green("✓")} Hashed ${assetFiles.length} asset files.`);
 }
 
-main().catch((err) => console.error(err));
+main().catch((err) => console.error(red(err)));
