@@ -1,5 +1,6 @@
 .DS_Store
 *.cache
+composer.lock
 node_modules
 tests/fixtures/kirby
 vendor
