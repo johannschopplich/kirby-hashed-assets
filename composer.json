@@ -2,6 +2,7 @@
   "name": "johannschopplich/kirby-hashed-assets",
   "description": "File name hashes support for css() and js() helpers",
   "type": "kirby-plugin",
+  "version": "2.2.6",
   "keywords": [
     "assets",
     "components",
@@ -13,6 +14,7 @@
     "manifest"
   ],
   "license": "MIT",
+  "homepage": "https://github.com/johannschopplich/kirby-hashed-assets#readme",
   "authors": [
     {
       "name": "Johann Schopplich",
@@ -25,7 +27,7 @@
     "getkirby/composer-installer": "^1.2"
   },
   "require-dev": {
-    "getkirby/cms": "^3.0",
+    "getkirby/cms": "^3.6",
     "phpunit/phpunit": "^9.0"
   },
   "scripts": {
