@@ -39,27 +39,27 @@ composer require johannschopplich/kirby-hashed-assets
 
 ### Automatic Hashing With `manifest.json`
 
-First and foremost, install the hashy npm package:
+First and foremost, install the [hashup](https://github.com/johannschopplich/hashup) npm package:
 
 ```bash
-npm i hashy -D
+npm i hashup -D
 ```
 
-Hashy is a tiny CLI tool with two objectives for your freshly build assets in mind:
+`hashup` is a tiny CLI tool with two objectives in mind for your freshly build assets:
 
 1. Rename or rather hash (hence the name) the assets.
 2. Generate a `manifest.json` for them.
 
-Add hashy to your build pipeline by adding it your `package.json` scripts (recommended), for example:
+Add hashup to your build pipeline by adding it your `package.json` scripts (recommended), for example:
 
 ```js
 {
   "scripts": {
     "clean": "rm -rf public/assets/{css,js}",
-    "build": "npm run clean && <...> && hashy"
+    "build": "npm run clean && <...> && hashup"
   },
   "devDependencies": {
-    "hashy": "latest"
+    "hashup": "latest"
   }
 }
 ```
