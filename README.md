@@ -2,7 +2,7 @@
 
 Enhances Kirby's `css()` and `js()` helpers to support hashed filenames. Pass your normal paths (e.g. `…main.js`) – the plugin will lookup hashed assets and transform the path automatically (e.g. `…main.20201226.js`). That way you can even keep asset paths identical in development and production environment!
 
-## Key features
+## Key Features
 
 - 🛷 Cache bust assets without query strings
 - 🎢 **No need** for web server rewrite rules!
@@ -23,38 +23,48 @@ Enhances Kirby's `css()` and `js()` helpers to support hashed filenames. Pass yo
 
 Download and copy this repository to `/site/plugins/kirby-hashed-assets`.
 
-### Git submodule
+### Git Submodule
 
-```
+```bash
 git submodule add https://github.com/johannschopplich/kirby-hashed-assets.git site/plugins/kirby-hashed-assets
 ```
 
 ### Composer
 
-```
+```bash
 composer require johannschopplich/kirby-hashed-assets
 ```
 
 ## Usage
 
-### Automatic hashing with `manifest.json`
+### Automatic Hashing With `manifest.json`
 
-> Head over to the [https://github.com/johannschopplich/plainkit-hashed-assets](plainkit-hashed-assets) repository to see a complete build setup in action.
+First and foremost, install the hashy npm package:
 
-To rename unhashed CSS and JS assets inside the `assets` directory after each build and generate an asset `manifest.json`, execute the [`hashAssets.cjs`](scripts/hashAssets.cjs) script. The script is pre-bundled and doesn't need any node dependencies. You can copy it to your root directory or add a npm script to your `package.json` (recommended):
+```bash
+npm i hashy -D
+```
+
+Hashy is a tiny CLI tool with two objectives for your freshly build assets in mind:
+
+1. Rename or rather hash (hence the name) the assets.
+2. Generate a `manifest.json` for them.
+
+Add hashy to your build pipeline by adding it your `package.json` scripts (recommended), for example:
 
 ```js
 {
   "scripts": {
     "clean": "rm -rf public/assets/{css,js}",
-    "assets:build": "...",
-    "assets:hash": "node site/plugins/kirby-hashed-assets/scripts/hashAssets.cjs",
-    "build": "npm run clean && npm run assets:build && npm run assets:hash"
+    "build": "npm run clean && <...> && hashy"
+  },
+  "devDependencies": {
+    "hashy": "latest"
   }
 }
 ```
 
-Now pass asset paths to Kirby's asset helpers like you normally would:
+Now, pass asset paths to Kirby's asset helpers like you normally do:
 
 ```php
 <?= js('assets/js/main.js') ?>
@@ -73,12 +83,13 @@ For template-specific assets, use `@template` (instead of `@auto`):
 > ⚠️ If no template file exists, `https://example.com/@template` will be echoed. This will lead to HTTP errors and blocked content since the requested file doesn't exist and the error page's HTML will be returned.
 
 If you are unsure if a template file exists, use the following helpers:
+
 - `cssTpl()`
 - `jsTpl()`
 
 They will echo a link tag, respectively script tag, only if a template file for current page's template is present.
 
-### Manual hashing
+### Manual Hashing
 
 For smaller websites you may prefer no build chain at all, but still want to utilize some form of asset hashing. In this use-case you can rename your files manually.
 
@@ -96,7 +107,7 @@ Now rename the file in the format of `main.{hash}.js`. You may use the current d
 
 Voilà, without changing the asset path the hashed file will be found and rendered in your template!
 
-### Hashed filenames for preloading links
+### Hashed Filenames for Preloading Links
 
 You can use the global `hashedUrl()` helper to lookup a file like you normally would with the `css()` or `js()` helpers. While the latter return a link or respectively script tag, the `hashedUrl()` helper will only return a URL which you can use in any context.
 
@@ -114,4 +125,4 @@ Since all evergreen browsers finally support JavaScript modules natively, you ma
 
 ## License
 
-[MIT](https://opensource.org/licenses/MIT)
+[MIT](./LICENSE) License © 2021 [Johann Schopplich](https://github.com/johannschopplich)
