@@ -4,7 +4,7 @@ namespace KirbyExtended;
 
 use Kirby\Cms\Url;
 use Kirby\Data\Data;
-use Kirby\Toolkit\F;
+use Kirby\Filesystem\F;
 use Kirby\Toolkit\Str;
 
 class AssetUrls
