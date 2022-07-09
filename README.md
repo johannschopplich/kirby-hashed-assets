@@ -10,6 +10,11 @@ Enhances Kirby's `css()` and `js()` helpers to support hashed filenames. Pass yo
 - 🎿 Supports manually hashed file names
 - ☃️ Create preload links with `hashedUrl()` helper
 
+## Projects Using the Hashed Assets Plugin
+
+- [plainkit-hashed-assets](https://github.com/johannschopplich/plainkit-hashed-assets) – a simple demonstration based on Kirby's plain kit
+- [realtroll.de](https://github.com/johannschopplich/realtroll.de) – a clean website using this plugin for asset hashing
+
 ## Requirements
 
 - Node.js
@@ -118,4 +123,4 @@ Since all evergreen browsers finally support JavaScript modules natively, you ma
 
 ## License
 
-[MIT](./LICENSE) License © 2021 [Johann Schopplich](https://github.com/johannschopplich)
+[MIT](./LICENSE) License © 2021-2022 [Johann Schopplich](https://github.com/johannschopplich)
