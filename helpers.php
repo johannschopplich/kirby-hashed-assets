@@ -1,6 +1,6 @@
 <?php
 
-use KirbyExtended\AssetUrls;
+use JohannSchopplich\AssetUrls;
 
 if (!function_exists('hashedUrl')) {
     /**

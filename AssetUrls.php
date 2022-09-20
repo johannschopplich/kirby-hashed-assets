@@ -1,6 +1,6 @@
 <?php
 
-namespace KirbyExtended;
+namespace JohannSchopplich;
 
 use Kirby\Cms\Url;
 use Kirby\Data\Data;
@@ -13,8 +13,6 @@ class AssetUrls
 
     /**
      * Get manifest containing hashed filenames
-     *
-     * @return array
      */
     public static function useManifest(): array
     {
@@ -33,9 +31,6 @@ class AssetUrls
 
     /**
      * Returns the hashed URL for a CSS asset if present
-     *
-     * @param array $args
-     * @return string
      */
     public static function css(...$args): string
     {
@@ -45,9 +40,6 @@ class AssetUrls
 
     /**
      * Returns the hashed URL for a JS asset if present
-     *
-     * @param array $args
-     * @return string
      */
     public static function js(...$args): string
     {

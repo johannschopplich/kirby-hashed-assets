@@ -10,6 +10,7 @@
     "helpers",
     "js",
     "kirby",
+    "kirby-cms",
     "laravel-mix",
     "manifest"
   ],
