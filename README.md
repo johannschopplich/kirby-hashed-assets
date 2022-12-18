@@ -19,7 +19,7 @@ Enhances Kirby's `css()` and `js()` helpers to support hashed filenames. Pass yo
 
 - Node.js
   - Optional, for file name hashing and `manifest.json` generation only.
-- Kirby 3
+- Kirby 3.7+
 - PHP 7.4+
 
 ## Installation
