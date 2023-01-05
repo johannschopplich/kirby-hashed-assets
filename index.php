@@ -8,7 +8,7 @@ load([
 
 require __DIR__ . '/helpers.php';
 
-\Kirby\Cms\App::plugin('johannschopplich/kirby-hashed-assets', [
+\Kirby\Cms\App::plugin('johannschopplich/hashed-assets', [
     'components' => [
         'css' => [AssetUrls::class, 'css'],
         'js' => [AssetUrls::class, 'js']

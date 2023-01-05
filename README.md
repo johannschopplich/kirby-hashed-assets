@@ -17,8 +17,8 @@ Enhances Kirby's `css()` and `js()` helpers to support hashed filenames. Pass yo
 
 ## Requirements
 
-- Kirby 3.7+
 - PHP 8.0+
+- Kirby 3.7+
 
 ## Installation
 
@@ -121,4 +121,4 @@ Since all evergreen browsers finally support JavaScript modules natively, you ma
 
 ## License
 
-[MIT](./LICENSE) License © 2021-2022 [Johann Schopplich](https://github.com/johannschopplich)
+[MIT](./LICENSE) License © 2021-2023 [Johann Schopplich](https://github.com/johannschopplich)
