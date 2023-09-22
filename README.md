@@ -121,4 +121,4 @@ Since all evergreen browsers finally support JavaScript modules natively, you ma
 
 ## License
 
-[MIT](./LICENSE) License © 2021-2023 [Johann Schopplich](https://github.com/johannschopplich)
+[MIT](./LICENSE) License © 2021-PRESENT [Johann Schopplich](https://github.com/johannschopplich)

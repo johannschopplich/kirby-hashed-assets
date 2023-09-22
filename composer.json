@@ -2,7 +2,7 @@
   "name": "johannschopplich/kirby-hashed-assets",
   "description": "File name hashes support for css() and js() helpers",
   "type": "kirby-plugin",
-  "version": "3.0.8",
+  "version": "3.0.9",
   "keywords": [
     "assets",
     "components",
@@ -24,12 +24,11 @@
     }
   ],
   "require": {
-    "PHP": ">=8.0",
     "getkirby/composer-installer": "^1.2"
   },
   "require-dev": {
     "friendsofphp/php-cs-fixer": "@stable",
-    "getkirby/cms": "^3.8",
+    "getkirby/cms": "^3.9",
     "phpunit/phpunit": "^9.0"
   },
   "scripts": {
