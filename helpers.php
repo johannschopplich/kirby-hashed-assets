@@ -1,6 +1,8 @@
 <?php
 
 use JohannSchopplich\AssetUrls;
+use Kirby\Cms\App;
+use Kirby\Cms\Html;
 
 if (!function_exists('hashedUrl')) {
     /**
@@ -11,8 +13,9 @@ if (!function_exists('hashedUrl')) {
      */
     function hashedUrl(string $url): string
     {
+        $kirby = App::instance();
         $extension = pathinfo($url, PATHINFO_EXTENSION);
-        return AssetUrls::handle(kirby(), $url, [], $extension);
+        return AssetUrls::handle($kirby, $url, [], $extension);
     }
 }
 
@@ -25,10 +28,11 @@ if (!function_exists('cssTpl')) {
      */
     function cssTpl($options = [])
     {
-        $url = AssetUrls::handle(kirby(), '@template', $options, 'css');
+        $kirby = App::instance();
+        $url = AssetUrls::handle($kirby, '@template', $options, 'css');
 
         if ($url !== '@template') {
-            return css($url, $options);
+            return Html::css($url, $options);
         }
     }
 }
@@ -42,10 +46,11 @@ if (!function_exists('jsTpl')) {
      */
     function jsTpl($options = [])
     {
-        $url = AssetUrls::handle(kirby(), '@template', $options, 'js');
+        $kirby = App::instance();
+        $url = AssetUrls::handle($kirby, '@template', $options, 'js');
 
         if ($url !== '@template') {
-            return js($url, $options);
+            return Html::js($url, $options);
         }
     }
 }

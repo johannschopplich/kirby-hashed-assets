@@ -39,4 +39,5 @@ class AssetUrlsTest extends TestCase
         $expected = '/assets/js/hashed.20201225.js';
         $this->assertEquals($expected, hashedUrl('assets/js/hashed.js'));
     }
+
 }
